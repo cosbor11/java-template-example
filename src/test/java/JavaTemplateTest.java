@@ -64,5 +64,38 @@ import org.junit.Test;
             Assert.assertEquals("Hello Chris Osborn!", buffer.readLine());
 
         }
+        
+        @Test
+        public void testFreemarkerTemplateEngine() throws Exception
+        {
+
+            ITemplateEngine templateEngine = new FreemarkerTemplateEngine();
+            
+            //mock the user input
+            UserInput userInput = new UserInput();
+            userInput.setFirstName("Chris");
+            userInput.setLastName("Osborn");
+
+            //create the out put file
+            File file = new File(outputFolder.getCanonicalPath() + File.separatorChar + "freemarkertest.txt");
+
+            //create a FileWriter 
+            try (Writer fileWriter = new FileWriter(file.getPath()))
+            {
+
+                //put the templateEngine to work
+                templateEngine.init("templates");
+                templateEngine.setTemplate("test"); //resources/templates/test.mustache
+                templateEngine.process(fileWriter, userInput); //compile template
+                templateEngine.flush(); //write to file
+            }
+
+            //Read from the file and assert
+            BufferedReader buffer = new BufferedReader(new FileReader(file));
+            Assert.assertEquals("Hello Chris Osborn!", buffer.readLine());
+
+        }
+        
+        
 
     }
