@@ -12,8 +12,6 @@ import org.junit.Test;
     public class JavaTemplateTest
     {
 
-        ITemplateEngine templateEngine = new MustacheTemplateEngine();
-
         public File outputFolder = new File(System.getProperty("user.home") + "/JavaTemplateTest"); //should use temporaryFolder instead
 
         @Before
@@ -37,8 +35,10 @@ import org.junit.Test;
         }
 
         @Test
-        public void testTemplateEngine() throws Exception
+        public void testMustacheTemplateEngine() throws Exception
         {
+            
+            ITemplateEngine templateEngine = new MustacheTemplateEngine();
 
             //mock the user input
             UserInput userInput = new UserInput();
@@ -97,7 +97,5 @@ import org.junit.Test;
             buffer.close();
 
         }
-        
-        
 
     }
