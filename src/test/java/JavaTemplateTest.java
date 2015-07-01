@@ -45,7 +45,7 @@ import org.junit.Test;
             userInput.setFirstName("Chris");
             userInput.setLastName("Osborn");
 
-            //create the out put file
+            //create the output file
             File file = new File(outputFolder.getCanonicalPath() + File.separatorChar + "test.txt");
 
             //create a FileWriter 
