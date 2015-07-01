@@ -34,7 +34,7 @@ import org.junit.rules.TemporaryFolder;
 
             //create the output file
             String testFolderPath = this.outputFolder.getRoot().getCanonicalPath();
-            File file = new File(testFolderPath.getCanonicalPath() + File.separatorChar + "mustachetest.txt");
+            File file = new File(testFolderPath + File.separatorChar + "mustachetest.txt");
 
             //create a FileWriter 
             try (Writer fileWriter = new FileWriter(file.getPath()))
@@ -67,7 +67,7 @@ import org.junit.rules.TemporaryFolder;
 
             //create the output file
             String testFolderPath = this.outputFolder.getRoot().getCanonicalPath();
-            File file = new File(testFolderPath.getCanonicalPath() + File.separatorChar + "freemarkertest.txt");
+            File file = new File(testFolderPath + File.separatorChar + "freemarkertest.txt");
 
             //create a FileWriter 
             try (Writer fileWriter = new FileWriter(file.getPath()))
