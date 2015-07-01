@@ -12,23 +12,8 @@ import org.junit.Test;
     public class JavaTemplateTest
     {
 
-        public File outputFolder = new File(System.getProperty("user.home") + "/JavaTemplateTest"); //should use temporaryFolder instead
-
-        @Before
-        public void setUp()
-        {
-            outputFolder.mkdirs();
-        }
-
-        @After
-        public void tearDown()
-        {
-            for (File file : outputFolder.listFiles())
-            {
-                file.delete();
-            }
-            outputFolder.delete();
-        }
+        @Rule
+        public TemporaryFolder outputFolder = new TemporaryFolder();
 
         public JavaTemplateTest()
         {
@@ -46,7 +31,8 @@ import org.junit.Test;
             userInput.setLastName("Osborn");
 
             //create the output file
-            File file = new File(outputFolder.getCanonicalPath() + File.separatorChar + "test.txt");
+            String testFolderPath = this.outputFolder.getRoot().getCanonicalPath();
+            File file = new File(testFolderPath.getCanonicalPath() + File.separatorChar + "mustachetest.txt");
 
             //create a FileWriter 
             try (Writer fileWriter = new FileWriter(file.getPath()))
@@ -77,8 +63,9 @@ import org.junit.Test;
             userInput.setFirstName("Chris");
             userInput.setLastName("Osborn");
 
-            //create the out put file
-            File file = new File(outputFolder.getCanonicalPath() + File.separatorChar + "freemarkertest.txt");
+            //create the output file
+            String testFolderPath = this.outputFolder.getRoot().getCanonicalPath();
+            File file = new File(testFolderPath.getCanonicalPath() + File.separatorChar + "freemarkertest.txt");
 
             //create a FileWriter 
             try (Writer fileWriter = new FileWriter(file.getPath()))
