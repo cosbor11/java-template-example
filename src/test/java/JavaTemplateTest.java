@@ -62,6 +62,7 @@ import org.junit.Test;
             //Read from the file and assert
             BufferedReader buffer = new BufferedReader(new FileReader(file));
             Assert.assertEquals("Hello Chris Osborn!", buffer.readLine());
+            buffer.close();
 
         }
         
@@ -85,7 +86,7 @@ import org.junit.Test;
 
                 //put the templateEngine to work
                 templateEngine.init("templates");
-                templateEngine.setTemplate("test"); //resources/templates/test.mustache
+                templateEngine.setTemplate("test"); //resources/templates/test.ftl
                 templateEngine.process(fileWriter, userInput); //compile template
                 templateEngine.flush(); //write to file
             }
@@ -93,6 +94,7 @@ import org.junit.Test;
             //Read from the file and assert
             BufferedReader buffer = new BufferedReader(new FileReader(file));
             Assert.assertEquals("Hello Chris Osborn!", buffer.readLine());
+            buffer.close();
 
         }
         
