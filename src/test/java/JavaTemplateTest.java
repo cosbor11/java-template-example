@@ -14,7 +14,7 @@ import org.junit.Test;
 
         ITemplateEngine templateEngine = new MustacheTemplateEngine();
 
-        public File outputFolder = new File(System.getProperty("user.home") + "/JavaTemplateTest");
+        public File outputFolder = new File(System.getProperty("user.home") + "/JavaTemplateTest"); //should use temporaryFolder instead
 
         @Before
         public void setUp()
